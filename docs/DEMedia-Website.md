@@ -20,7 +20,7 @@ Included:
 - Generated hero and Open Graph imagery
 - Services, framework, differentiators, use cases, and CTA sections
 - Next.js Server Action contact form
-- Resend email notification flow
+- Microsoft Graph email notification flow through Microsoft 365
 - `/thank-you`, `/privacy`, `/terms`, sitemap, robots, and 404 routes
 - Vercel Analytics
 - README and deployment notes
@@ -77,7 +77,7 @@ Stack:
 - Next.js App Router
 - TypeScript
 - Tailwind CSS
-- Resend
+- Microsoft Graph
 - Vercel Analytics
 - Vercel hosting
 
@@ -88,15 +88,17 @@ No Vercel storage is needed in Phase 1. Static image assets live in `public/`, a
 Environment variables:
 
 ```txt
-RESEND_API_KEY=
+MS_TENANT_ID=9575ab0b-5bfe-4ab2-abd1-4f4261cc5931
+MS_CLIENT_ID=aa118c63-69b1-413d-9e84-53d797cd95ac
+MS_CLIENT_SECRET=
+MS_FROM_EMAIL=Contact@DigitalEnergyMedia.Com
 LEAD_TO_EMAIL=Contact@DigitalEnergyMedia.Com
-LEAD_FROM_EMAIL=
 ```
 
 ## Deployment Plan
 
 1. Connect `https://github.com/MiloTheAssistant/DigitalEnergyMedia` to Vercel.
-2. Configure the Resend environment variables in Vercel.
+2. Configure the Microsoft Graph environment variables in Vercel.
 3. Deploy a preview and verify the homepage, routes, form validation, and build logs.
 4. Add `digitalenergymedia.com` and `www.digitalenergymedia.com`.
 5. Configure DNS using Vercel's domain instructions.
@@ -110,7 +112,7 @@ The Phase 1 site is acceptable when:
 - The hero communicates the offer in under 10 seconds.
 - The services section has five clear service cards.
 - The framework explains Map, Build, Publish, Measure, and Compound.
-- The lead form validates required fields and sends through Resend when configured.
+- The lead form validates required fields and sends through Microsoft Graph when configured.
 - `/thank-you`, `/privacy`, `/terms`, sitemap, robots, and 404 routes render.
 - Metadata and Open Graph image are configured.
 - Footer includes email, phone, regional location, and legal placeholder language.

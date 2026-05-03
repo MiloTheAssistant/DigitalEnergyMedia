@@ -1,8 +1,8 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { Resend } from "resend";
 import { formDataToLeadInput, validateLeadInput } from "@/lib/lead";
+import { sendGraphMail } from "@/lib/microsoft-graph-mail";
 import { siteConfig } from "@/lib/site-config";
 
 export type LeadFormState = {
@@ -21,6 +21,14 @@ function leadEmailHtml(data: {
   timeline: string;
   message: string;
 }) {
+  const escapeHtml = (value: string) =>
+    value
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#39;");
+
   const rows = [
     ["Name", data.name],
     ["Email", data.email],
@@ -41,8 +49,8 @@ function leadEmailHtml(data: {
           .map(
             ([label, value]) => `
               <tr>
-                <td style="border: 1px solid #e5e7eb; padding: 10px; font-weight: 700; width: 150px;">${label}</td>
-                <td style="border: 1px solid #e5e7eb; padding: 10px; white-space: pre-wrap;">${value}</td>
+                <td style="border: 1px solid #e5e7eb; padding: 10px; font-weight: 700; width: 150px;">${escapeHtml(label)}</td>
+                <td style="border: 1px solid #e5e7eb; padding: 10px; white-space: pre-wrap;">${escapeHtml(value)}</td>
               </tr>
             `,
           )
@@ -66,11 +74,14 @@ export async function submitLeadInquiry(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.LEAD_TO_EMAIL || siteConfig.email;
-  const from = process.env.LEAD_FROM_EMAIL;
 
-  if (!apiKey || !from) {
+  if (
+    !process.env.MS_TENANT_ID ||
+    !process.env.MS_CLIENT_ID ||
+    !process.env.MS_CLIENT_SECRET ||
+    !process.env.MS_FROM_EMAIL
+  ) {
     return {
       status: "error",
       message:
@@ -78,16 +89,19 @@ export async function submitLeadInquiry(
     };
   }
 
-  const resend = new Resend(apiKey);
   const data = validation.data;
 
   try {
-    await resend.emails.send({
-      from,
+    await sendGraphMail({
       to,
       replyTo: data.email,
       subject: `New DEM visibility inquiry: ${data.service}`,
       html: leadEmailHtml(data),
+    }, {
+      tenantId: process.env.MS_TENANT_ID,
+      clientId: process.env.MS_CLIENT_ID,
+      clientSecret: process.env.MS_CLIENT_SECRET,
+      fromEmail: process.env.MS_FROM_EMAIL,
     });
   } catch {
     return {
