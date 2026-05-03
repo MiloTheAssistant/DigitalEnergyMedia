@@ -103,7 +103,9 @@ export async function submitLeadInquiry(
       clientSecret: process.env.MS_CLIENT_SECRET,
       fromEmail: process.env.MS_FROM_EMAIL,
     });
-  } catch {
+  } catch (error) {
+    console.error("Lead inquiry mail failed", error);
+
     return {
       status: "error",
       message:
