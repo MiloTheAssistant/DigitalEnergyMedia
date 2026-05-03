@@ -106,6 +106,10 @@ export async function sendGraphMail(message: GraphMailMessage, config: GraphMail
   );
 
   if (!response.ok) {
-    throw new Error(`Microsoft Graph sendMail failed: ${response.status}`);
+    const errorBody = await response.text();
+
+    throw new Error(
+      `Microsoft Graph sendMail failed: ${response.status} ${errorBody}`,
+    );
   }
 }
