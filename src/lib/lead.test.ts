@@ -12,6 +12,7 @@ describe("validateLeadInput", () => {
       budget: "$2,500 - $5,000",
       timeline: "Next 30 days",
       message: "We need a sharper website and an AI-assisted content system.",
+      formStartedAt: String(Date.now() - 5000),
     });
 
     expect(result.ok).toBe(true);
@@ -35,6 +36,37 @@ describe("validateLeadInput", () => {
       expect(result.errors.email).toBeTruthy();
       expect(result.errors.service).toBeTruthy();
       expect(result.errors.message).toBeTruthy();
+    }
+  });
+
+  it("rejects honeypot submissions", () => {
+    const result = validateLeadInput({
+      name: "Jordan Scott",
+      email: "owner@example.com",
+      service: "Visibility Audit",
+      message: "We need a sharper website and an AI-assisted content system.",
+      contactPreference: "Please call me",
+      formStartedAt: String(Date.now() - 5000),
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.form).toBeTruthy();
+    }
+  });
+
+  it("rejects submissions that arrive too quickly", () => {
+    const result = validateLeadInput({
+      name: "Jordan Scott",
+      email: "owner@example.com",
+      service: "Visibility Audit",
+      message: "We need a sharper website and an AI-assisted content system.",
+      formStartedAt: String(Date.now()),
+    });
+
+    expect(result.ok).toBe(false);
+    if (!result.ok) {
+      expect(result.errors.form).toBeTruthy();
     }
   });
 });

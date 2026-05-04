@@ -9,6 +9,8 @@ export type LeadInput = {
   budget?: unknown;
   timeline?: unknown;
   message?: unknown;
+  contactPreference?: unknown;
+  formStartedAt?: unknown;
 };
 
 export type LeadData = {
@@ -24,7 +26,10 @@ export type LeadData = {
 
 export type LeadValidationResult =
   | { ok: true; data: LeadData }
-  | { ok: false; errors: Partial<Record<keyof LeadData, string>> };
+  | { ok: false; errors: Partial<Record<keyof LeadData | "form", string>> };
+
+const MIN_FORM_AGE_MS = 1500;
+const MAX_FORM_AGE_MS = 24 * 60 * 60 * 1000;
 
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -54,10 +59,16 @@ export function formDataToLeadInput(formData: FormData): LeadInput {
     budget: formData.get("budget"),
     timeline: formData.get("timeline"),
     message: formData.get("message"),
+    contactPreference: formData.get("contactPreference"),
+    formStartedAt: formData.get("formStartedAt"),
   };
 }
 
 export function validateLeadInput(input: LeadInput): LeadValidationResult {
+  const now = Date.now();
+  const contactPreference = clean(input.contactPreference);
+  const formStartedAt = Number(clean(input.formStartedAt));
+
   const data: LeadData = {
     name: clean(input.name),
     email: clean(input.email),
@@ -69,7 +80,21 @@ export function validateLeadInput(input: LeadInput): LeadValidationResult {
     message: clean(input.message),
   };
 
-  const errors: Partial<Record<keyof LeadData, string>> = {};
+  const errors: Partial<Record<keyof LeadData | "form", string>> = {};
+
+  if (contactPreference) {
+    errors.form = "Please try submitting the form again.";
+  }
+
+  if (!Number.isFinite(formStartedAt) || formStartedAt <= 0) {
+    errors.form = "Please refresh the page and try again.";
+  } else {
+    const formAge = now - formStartedAt;
+
+    if (formAge < MIN_FORM_AGE_MS || formAge > MAX_FORM_AGE_MS) {
+      errors.form = "Please refresh the page and try again.";
+    }
+  }
 
   if (data.name.length < 2) {
     errors.name = "Please add your name.";

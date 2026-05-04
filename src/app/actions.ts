@@ -69,7 +69,9 @@ export async function submitLeadInquiry(
   if (!validation.ok) {
     return {
       status: "error",
-      message: "Please fix the highlighted fields.",
+      message: validation.errors.form
+        ? "We could not verify the submission. Please refresh the page and try again, or email Contact@DigitalEnergyMedia.Com directly."
+        : "Please fix the highlighted fields.",
       errors: validation.errors,
     };
   }

@@ -1,7 +1,7 @@
 "use client";
 
 import { Send } from "lucide-react";
-import { useActionState, useRef } from "react";
+import { useActionState, useRef, useState } from "react";
 import { submitLeadInquiry, type LeadFormState } from "@/app/actions";
 import { budgetOptions, serviceOptions, timelineOptions } from "@/lib/site-config";
 import { trackEvent } from "@/lib/analytics";
@@ -18,6 +18,7 @@ function FieldError({ message }: { message?: string }) {
 
 export function LeadForm() {
   const [state, formAction, isPending] = useActionState(submitLeadInquiry, initialState);
+  const [formStartedAt] = useState(() => String(Date.now()));
   const formStarted = useRef(false);
 
   function trackStart() {
@@ -34,6 +35,18 @@ export function LeadForm() {
       onSubmit={() => trackEvent("lead_form_submit_attempt")}
       className="grid gap-4"
     >
+      <div aria-hidden="true" className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden">
+        <label>
+          Preferred contact method
+          <input
+            name="contactPreference"
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </label>
+      </div>
+      <input type="hidden" name="formStartedAt" value={formStartedAt} />
+
       {state.status === "error" ? (
         <div className="rounded-lg border border-amber-400/30 bg-amber-300/10 p-4 text-sm text-amber-100">
           {state.message}
