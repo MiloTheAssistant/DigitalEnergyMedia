@@ -61,6 +61,27 @@ async function getGraphAccessToken(config: {
   return payload.access_token;
 }
 
+async function getGraphErrorMessage(response: Response) {
+  const fallback = response.statusText || "Request failed";
+
+  try {
+    const payload = (await response.json()) as {
+      error?: { code?: string; message?: string };
+    };
+
+    const code = payload.error?.code;
+    const message = payload.error?.message;
+
+    if (code && message) {
+      return `${code} - ${message}`;
+    }
+
+    return message || code || fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 export async function sendGraphMail(message: GraphMailMessage, config: GraphMailConfig) {
   const resolved = getRequiredConfig(config);
 
@@ -106,10 +127,10 @@ export async function sendGraphMail(message: GraphMailMessage, config: GraphMail
   );
 
   if (!response.ok) {
-    const errorBody = await response.text();
+    const errorMessage = await getGraphErrorMessage(response);
 
     throw new Error(
-      `Microsoft Graph sendMail failed: ${response.status} ${errorBody}`,
+      `Microsoft Graph sendMail failed: ${response.status} ${errorMessage}`,
     );
   }
 }

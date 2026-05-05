@@ -6,7 +6,7 @@
 - Revoke any client secret that was copied outside the Entra and Vercel dashboards.
 - Confirm `MS_CLIENT_SECRET`, `MS_TENANT_ID`, `MS_CLIENT_ID`, `MS_FROM_EMAIL`, and `LEAD_TO_EMAIL` are present in Vercel Production.
 - Confirm the live form redirects to `/thank-you` and the inquiry arrives at `Contact@DigitalEnergyMedia.Com`.
-- Add a Microsoft Graph application access policy so the app can send only as the contact mailbox.
+- Scope Microsoft Graph mail access so the app can send only as the contact mailbox. Use `docs/microsoft-365-mail-scope.md`.
 
 ## Search Launch
 
