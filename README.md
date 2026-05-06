@@ -36,6 +36,11 @@ npm install
 npm run dev
 ```
 
+Local ports:
+
+- Normal dev: `http://localhost:3008`
+- Alternate/debug: `http://localhost:3009` via `npm run dev:alt`
+
 ## Verification
 
 ```bash
