@@ -16,6 +16,12 @@
 - Verify `https://digitalenergymedia.com/robots.txt` returns `200`.
 - Inspect the homepage URL in both search tools after the first production launch.
 
+## Canonical Host
+
+- Treat `https://www.digitalenergymedia.com` as the primary public host.
+- Keep `https://digitalenergymedia.com` active, but redirect it to `https://www.digitalenergymedia.com`.
+- Update canonical metadata, sitemap URLs, robots sitemap URL, and Search Console/Bing submissions to use the `www` host.
+
 ## Social And Preview Cards
 
 - Verify the Open Graph image at `https://digitalenergymedia.com/brand/og-image.png`.
