@@ -13,6 +13,7 @@ import {
   Zap,
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
+import { servicePages } from "@/content/service-pages";
 import { siteCopy } from "@/content/site-copy";
 import { siteConfig } from "@/lib/site-config";
 
@@ -312,11 +313,14 @@ export default function Home() {
           <div>
             <h3 className="font-semibold text-white">Services</h3>
             <div className="mt-4 grid gap-2">
-              {siteCopy.services.slice(0, 4).map((service) => (
-                <a key={service.title} href="#services" className="transition hover:text-white">
+              {servicePages.map((service) => (
+                <a key={service.slug} href={`/services/${service.slug}`} className="transition hover:text-white">
                   {service.title}
                 </a>
               ))}
+              <a href="/st-louis-ai-visibility" className="transition hover:text-white">
+                St. Louis AI Visibility
+              </a>
             </div>
           </div>
           <div>
