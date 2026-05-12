@@ -8,6 +8,7 @@ export const siteConfig = {
   description:
     "Digital Energy Media builds AI-powered visibility systems for businesses ready to be found, trusted, automated, and moving.",
   heroImage: "/brand/digital-energy-media-hero.png",
+  profileStampImage: "/brand/website/profile-stamp.png",
   ogImage: "/brand/og-image.png",
   nav: [
     { label: "Services", href: "#services" },

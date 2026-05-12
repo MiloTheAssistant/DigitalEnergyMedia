@@ -10,7 +10,6 @@ import {
   Layers3,
   RadioTower,
   Sparkles,
-  Zap,
 } from "lucide-react";
 import { LeadForm } from "@/components/lead-form";
 import { servicePages } from "@/content/service-pages";
@@ -57,9 +56,13 @@ export default function Home() {
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#05070c]/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <a href="#top" className="flex items-center gap-3">
-            <span className="grid h-9 w-9 place-items-center rounded-md border border-amber-300/60 bg-amber-300/10 text-amber-200">
-              <Zap aria-hidden="true" size={19} />
-            </span>
+            <Image
+              src={siteConfig.profileStampImage}
+              alt=""
+              width={36}
+              height={36}
+              className="h-9 w-9 rounded-full border border-amber-300/50 object-cover shadow-[0_0_22px_rgba(245,158,11,0.18)]"
+            />
             <span className="text-base font-semibold">{siteConfig.name}</span>
           </a>
           <nav className="hidden items-center gap-6 text-sm text-slate-300 lg:flex">
@@ -249,8 +252,19 @@ export default function Home() {
             </div>
           </div>
           <div id="about" className="rounded-lg border border-cyan-300/15 bg-cyan-300/[0.04] p-6 sm:p-8">
-            <SectionLabel>Built For</SectionLabel>
-            <h3 className="text-3xl font-semibold">Businesses that need the web to start working harder.</h3>
+            <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-center">
+              <Image
+                src={siteConfig.profileStampImage}
+                alt="Digital Energy Media profile stamp"
+                width={112}
+                height={112}
+                className="h-28 w-28 rounded-full border border-amber-300/40 object-cover shadow-[0_0_40px_rgba(245,158,11,0.18)]"
+              />
+              <div>
+                <SectionLabel>Built For</SectionLabel>
+                <h3 className="text-3xl font-semibold">Businesses that need the web to start working harder.</h3>
+              </div>
+            </div>
             <div className="mt-8 grid gap-3">
               {siteCopy.useCases.map((item) => (
                 <div key={item} className="flex items-center justify-between rounded-md border border-white/10 bg-slate-950/80 p-4">
@@ -298,9 +312,13 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl gap-8 text-sm text-slate-300 md:grid-cols-[1.3fr_0.7fr_0.7fr]">
           <div>
             <div className="flex items-center gap-3 text-white">
-              <span className="grid h-9 w-9 place-items-center rounded-md border border-amber-300/60 bg-amber-300/10 text-amber-200">
-                <Zap aria-hidden="true" size={19} />
-              </span>
+              <Image
+                src={siteConfig.profileStampImage}
+                alt=""
+                width={36}
+                height={36}
+                className="h-9 w-9 rounded-full border border-amber-300/50 object-cover"
+              />
               <span className="font-semibold">{siteConfig.name}</span>
             </div>
             <p className="mt-4 max-w-lg leading-7">
