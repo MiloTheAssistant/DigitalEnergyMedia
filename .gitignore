@@ -43,6 +43,7 @@ docs/slides_png/
 # local verification artifacts
 .codex-screens/
 .chrome-profile*/
+.superpowers/
 
 # typescript
 *.tsbuildinfo
