@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { JsonLd } from "@/components/json-ld";
 import { siteConfig } from "@/lib/site-config";
+import { createOrganizationSchema, createWebsiteSchema } from "@/lib/structured-data";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -67,6 +69,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <JsonLd id="organization-schema" data={createOrganizationSchema()} />
+        <JsonLd id="website-schema" data={createWebsiteSchema()} />
         {children}
         <Analytics />
       </body>

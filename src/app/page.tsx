@@ -58,7 +58,7 @@ export default function Home() {
           <a href="#top" className="flex items-center gap-3">
             <Image
               src={siteConfig.profileStampImage}
-              alt=""
+              alt="Digital Energy Media profile stamp"
               width={36}
               height={36}
               className="h-9 w-9 rounded-full border border-amber-300/50 object-cover shadow-[0_0_22px_rgba(245,158,11,0.18)]"
@@ -84,7 +84,7 @@ export default function Home() {
       <section id="top" className="relative isolate min-h-screen pt-16">
         <Image
           src={siteConfig.heroImage}
-          alt=""
+          alt="Digital Energy Media AI visibility command center"
           fill
           priority
           sizes="100vw"
@@ -137,6 +137,12 @@ export default function Home() {
             <p className="text-lg leading-8 text-slate-300">
               A website alone is not enough. Random posts are not enough. Visibility comes from connected systems:
               clear messaging, searchable pages, useful media, lead capture, automation, and analytics that tell the truth.
+            </p>
+          </div>
+          <div className="mt-10 rounded-lg border border-cyan-300/15 bg-cyan-300/[0.04] p-6 sm:p-8">
+            <h3 className="text-2xl font-semibold">What is an AI visibility system?</h3>
+            <p className="mt-4 max-w-5xl text-lg leading-8 text-slate-200">
+              {siteCopy.aiVisibilityDefinition}
             </p>
           </div>
           <div className="mt-12 grid gap-4 md:grid-cols-3">
@@ -314,7 +320,7 @@ export default function Home() {
             <div className="flex items-center gap-3 text-white">
               <Image
                 src={siteConfig.profileStampImage}
-                alt=""
+                alt="Digital Energy Media profile stamp"
                 width={36}
                 height={36}
                 className="h-9 w-9 rounded-full border border-amber-300/50 object-cover"

@@ -3,9 +3,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowRight, CheckCircle2, Layers3, Zap } from "lucide-react";
+import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { getServicePage, servicePages } from "@/content/service-pages";
 import { siteConfig } from "@/lib/site-config";
+import { createServiceSchema } from "@/lib/structured-data";
 
 type ServicePageProps = {
   params: Promise<{ slug: string }>;
@@ -26,7 +28,7 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const url = `${siteConfig.url}/services/${service.slug}`;
 
   return {
-    title: `${service.title} | Digital Energy Media`,
+    title: service.title,
     description: service.description,
     alternates: { canonical: url },
     openGraph: {
@@ -57,6 +59,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <main className="min-h-screen bg-[#05070c] text-white">
+      <JsonLd id="service-schema" data={createServiceSchema(service)} />
       <header className="border-b border-white/10 bg-[#05070c]/95">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
@@ -74,7 +77,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
         <Image
           src={siteConfig.heroImage}
-          alt=""
+          alt="Digital Energy Media AI visibility command center"
           fill
           priority
           sizes="100vw"

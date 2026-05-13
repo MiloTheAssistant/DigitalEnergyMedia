@@ -4,6 +4,10 @@ import { CheckCircle2 } from "lucide-react";
 export const metadata = {
   title: "Visibility Request Received",
   description: "Thanks for contacting Digital Energy Media.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function ThankYouPage() {

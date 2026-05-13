@@ -2,11 +2,13 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CheckCircle2, MapPin, Zap } from "lucide-react";
+import { JsonLd } from "@/components/json-ld";
 import { LeadForm } from "@/components/lead-form";
 import { siteConfig } from "@/lib/site-config";
+import { createLocalBusinessSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = {
-  title: "St. Louis AI Visibility Services | Digital Energy Media",
+  title: "St. Louis AI Visibility Services",
   description:
     "AI visibility, website, content, and automation systems for small and mid-sized businesses in the Eureka and St. Louis region.",
   alternates: { canonical: `${siteConfig.url}/st-louis-ai-visibility` },
@@ -45,6 +47,7 @@ const capabilities = [
 export default function StLouisAiVisibilityPage() {
   return (
     <main className="min-h-screen bg-[#05070c] text-white">
+      <JsonLd id="local-business-schema" data={createLocalBusinessSchema()} />
       <header className="border-b border-white/10 bg-[#05070c]/95">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center gap-3">
@@ -62,7 +65,7 @@ export default function StLouisAiVisibilityPage() {
       <section className="relative isolate overflow-hidden px-4 py-24 sm:px-6 lg:px-8">
         <Image
           src={siteConfig.heroImage}
-          alt=""
+          alt="Digital Energy Media regional AI visibility system"
           fill
           priority
           sizes="100vw"

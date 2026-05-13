@@ -18,7 +18,7 @@ export const servicePages: ServicePage[] = [
     description:
       "A practical audit of your website, messaging, search footprint, content system, automation opportunities, and lead path.",
     intro:
-      "The AI Visibility Audit maps where your business is findable, where trust breaks down, and where automation can remove friction. The result is a focused action plan instead of a generic marketing report.",
+      "The AI Visibility Audit maps where your business is findable, where trust breaks down, and where automation can remove friction. It reviews the public website, service pages, search footprint, content structure, brand signals, lead capture path, and follow-up workflow. The result is a focused action plan that separates immediate fixes from deeper systems work, so owners can improve discovery, trust, conversion, and operational follow-through without relying on a generic marketing report.",
     outcomes: [
       "A clear map of current visibility gaps",
       "Search and content opportunities tied to buyer intent",
@@ -57,7 +57,7 @@ export const servicePages: ServicePage[] = [
     description:
       "A focused Vercel-first website sprint for businesses that need a fast, credible, search-ready digital home base.",
     intro:
-      "The Website Launch Sprint creates a clean public foundation: clear positioning, fast pages, SEO metadata, lead capture, and a deployment setup that can grow with the business.",
+      "The Website Launch Sprint creates a clean public foundation for a business that needs to be understood quickly online. It defines the offer, shapes the page structure, builds fast responsive pages, adds SEO metadata, connects lead capture, and prepares a Vercel deployment path that can grow with future service pages, campaigns, content, analytics, and automation workflows.",
     outcomes: [
       "Premium landing page or small site foundation",
       "Search-ready metadata, sitemap, and robots configuration",
@@ -96,7 +96,7 @@ export const servicePages: ServicePage[] = [
     description:
       "Reusable topic maps, prompt libraries, publishing workflows, and editorial systems for AI-assisted content production.",
     intro:
-      "AI content only compounds when it has structure. This service turns scattered ideas into reusable content operations that keep voice, offers, topics, and publishing workflows aligned.",
+      "AI content only compounds when it has structure. This service turns scattered ideas, customer questions, offer details, and expert notes into reusable content operations. Digital Energy Media builds topic maps, brand voice rules, prompt libraries, review steps, and publishing workflows that keep AI-assisted output aligned with real business context instead of generic filler.",
     outcomes: [
       "Topic maps tied to services and buyer questions",
       "Reusable prompt libraries and brand voice rules",
@@ -135,7 +135,7 @@ export const servicePages: ServicePage[] = [
     description:
       "Practical workflow design for lead capture, follow-up, reporting, content operations, and AI-assisted business processes.",
     intro:
-      "Automation should remove drag without hiding the business. This work identifies repeatable steps, clarifies ownership, and builds simple workflows that help the team respond faster and operate with less manual overhead.",
+      "Automation should remove drag without hiding the business. This work identifies repeatable steps in lead capture, follow-up, reporting, content production, and campaign operations. Digital Energy Media clarifies ownership, maps where human review still matters, and designs practical workflows that help teams respond faster, miss fewer steps, and operate with less manual overhead.",
     outcomes: [
       "Lead intake and follow-up workflow recommendations",
       "Content and campaign process automation maps",

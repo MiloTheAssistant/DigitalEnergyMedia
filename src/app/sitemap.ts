@@ -4,7 +4,7 @@ import { siteConfig } from "@/lib/site-config";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePaths = servicePages.map((service) => `/services/${service.slug}`);
-  const paths = ["", ...servicePaths, "/st-louis-ai-visibility", "/privacy", "/terms", "/thank-you"];
+  const paths = ["", ...servicePaths, "/st-louis-ai-visibility", "/privacy", "/terms"];
 
   return paths.map((path) => ({
     url: `${siteConfig.url}${path}`,
