@@ -13,7 +13,7 @@ describe("structured data", () => {
       "@context": "https://schema.org",
       "@type": "Organization",
       name: "Digital Energy Media",
-      url: "https://digitalenergymedia.com",
+      url: "https://www.digitalenergymedia.com",
       email: "Contact@DigitalEnergyMedia.Com",
       telephone: "(573) 500-0064",
     });
@@ -22,7 +22,7 @@ describe("structured data", () => {
       "@context": "https://schema.org",
       "@type": "WebSite",
       name: "Digital Energy Media",
-      url: "https://digitalenergymedia.com",
+      url: "https://www.digitalenergymedia.com",
     });
   });
 
@@ -34,7 +34,7 @@ describe("structured data", () => {
       "@context": "https://schema.org",
       "@type": "Service",
       name: "AI Visibility Audit",
-      url: "https://digitalenergymedia.com/services/ai-visibility-audit",
+      url: "https://www.digitalenergymedia.com/services/ai-visibility-audit",
       provider: {
         "@type": "Organization",
         name: "Digital Energy Media",

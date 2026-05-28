@@ -102,8 +102,8 @@ Application Access Policy changes can take more than one hour to affect Microsof
 
 After either scoping method:
 
-1. Submit the live contact form at `https://digitalenergymedia.com`.
-2. Confirm redirect to `https://digitalenergymedia.com/thank-you`.
+1. Submit the live contact form at `https://www.digitalenergymedia.com`.
+2. Confirm redirect to `https://www.digitalenergymedia.com/thank-you`.
 3. Confirm the email arrives at `Contact@DigitalEnergyMedia.Com`.
 4. Check Vercel production logs for new mail errors.
 

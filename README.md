@@ -13,7 +13,7 @@ AI-powered visibility systems for businesses ready to be found, trusted, automat
 
 ## Phase 1 Scope
 
-Phase 1 is a premium single-page landing site with service sections, the Digital Energy Media framework, generated hero and Open Graph imagery, lead capture, SEO metadata, privacy and terms pages, sitemap, robots, and deployment readiness for `https://digitalenergymedia.com`.
+Phase 1 is a premium single-page landing site with service sections, the Digital Energy Media framework, generated hero and Open Graph imagery, lead capture, SEO metadata, privacy and terms pages, sitemap, robots, and deployment readiness for `https://www.digitalenergymedia.com`.
 
 No Vercel storage, CMS, auth, Stripe, client portal, or social media links are included in Phase 1.
 
@@ -53,7 +53,7 @@ npm run build
 
 The source repository is `https://github.com/MiloTheAssistant/DigitalEnergyMedia`.
 
-Deploy through Vercel Git integration, configure the environment variables above, then add:
+Deploy through Vercel Git integration, configure the environment variables above, then add both hosts with `www` as canonical:
 
 - `digitalenergymedia.com`
 - `www.digitalenergymedia.com`

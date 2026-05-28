@@ -10,10 +10,10 @@
 
 ## Search Launch
 
-- Create Google Search Console property for `digitalenergymedia.com`.
+- Create Google Search Console domain property for `digitalenergymedia.com`.
 - Create Bing Webmaster Tools property for `digitalenergymedia.com`.
-- Submit `https://digitalenergymedia.com/sitemap.xml`.
-- Verify `https://digitalenergymedia.com/robots.txt` returns `200`.
+- Submit `https://www.digitalenergymedia.com/sitemap.xml`.
+- Verify `https://www.digitalenergymedia.com/robots.txt` returns `200`.
 - Inspect the homepage URL in both search tools after the first production launch.
 
 ## Canonical Host
@@ -24,7 +24,7 @@
 
 ## Social And Preview Cards
 
-- Verify the Open Graph image at `https://digitalenergymedia.com/brand/og-image.png`.
+- Verify the Open Graph image at `https://www.digitalenergymedia.com/brand/og-image.png`.
 - Test the homepage preview in LinkedIn, Facebook, X, and Teams before sharing broadly.
 - Add social profile links only after official accounts are created and branded.
 

@@ -12,7 +12,7 @@ Public one-liner:
 
 ## Phase 1 Scope
 
-Phase 1 launches a premium Vercel-hosted landing page prepared for `https://digitalenergymedia.com`.
+Phase 1 launches a premium Vercel-hosted landing page prepared for `https://www.digitalenergymedia.com`.
 
 Included:
 
@@ -100,7 +100,7 @@ LEAD_TO_EMAIL=Contact@DigitalEnergyMedia.Com
 1. Connect `https://github.com/MiloTheAssistant/DigitalEnergyMedia` to Vercel.
 2. Configure the Microsoft Graph environment variables in Vercel.
 3. Deploy a preview and verify the homepage, routes, form validation, and build logs.
-4. Add `digitalenergymedia.com` and `www.digitalenergymedia.com`.
+4. Add `digitalenergymedia.com` and `www.digitalenergymedia.com`, using `www` as the canonical public host.
 5. Configure DNS using Vercel's domain instructions.
 6. Promote or redeploy to production after verification.
 

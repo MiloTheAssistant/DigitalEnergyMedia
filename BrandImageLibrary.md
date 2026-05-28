@@ -178,7 +178,7 @@ I need to create a project-specific photoreal brand image asset for Digital Ener
 
 Project:
 - Website/project name: Digital Energy Media
-- Website domain: digitalenergymedia.com
+- Website domain: www.digitalenergymedia.com
 - Repo path: D:\Dev\DigitalEnergyMedia-Website
 - Destination folder: D:\Dev\DigitalEnergyMedia-Website\public\brand
 - Business/location/audience: Digital Energy Media serves small and mid-sized businesses in the Eureka, MO / St. Louis region that need websites, content systems, AI-assisted workflows, automation rails, and reporting loops.

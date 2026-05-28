@@ -1,7 +1,7 @@
 export const siteConfig = {
   name: "Digital Energy Media",
   shortName: "DE Media",
-  url: "https://digitalenergymedia.com",
+  url: "https://www.digitalenergymedia.com",
   email: "Contact@DigitalEnergyMedia.Com",
   phone: "(573) 500-0064",
   location: "Eureka, MO / St. Louis Region",

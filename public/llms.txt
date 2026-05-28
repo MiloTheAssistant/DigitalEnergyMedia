@@ -4,12 +4,12 @@ Digital Energy Media builds AI-powered visibility systems for small and mid-size
 
 ## Core Pages
 
-- [Home](https://digitalenergymedia.com): Overview of Digital Energy Media's visibility systems, services, framework, and contact path.
-- [AI Visibility Audit](https://digitalenergymedia.com/services/ai-visibility-audit): Practical audit service for website, messaging, search footprint, content, automation opportunities, and lead path.
-- [Website Launch Sprint](https://digitalenergymedia.com/services/website-launch-sprint): Vercel-first website sprint for a credible, search-ready public foundation.
-- [AI Content Systems](https://digitalenergymedia.com/services/ai-content-systems): Topic maps, prompt libraries, brand voice rules, and publishing workflows for lean teams.
-- [Automation Workflows](https://digitalenergymedia.com/services/automation-workflows): Workflow design for lead capture, follow-up, reporting, content operations, and AI-assisted business processes.
-- [St. Louis AI Visibility](https://digitalenergymedia.com/st-louis-ai-visibility): Regional page for Eureka and St. Louis businesses exploring AI visibility, website, content, and automation systems.
+- [Home](https://www.digitalenergymedia.com): Overview of Digital Energy Media's visibility systems, services, framework, and contact path.
+- [AI Visibility Audit](https://www.digitalenergymedia.com/services/ai-visibility-audit): Practical audit service for website, messaging, search footprint, content, automation opportunities, and lead path.
+- [Website Launch Sprint](https://www.digitalenergymedia.com/services/website-launch-sprint): Vercel-first website sprint for a credible, search-ready public foundation.
+- [AI Content Systems](https://www.digitalenergymedia.com/services/ai-content-systems): Topic maps, prompt libraries, brand voice rules, and publishing workflows for lean teams.
+- [Automation Workflows](https://www.digitalenergymedia.com/services/automation-workflows): Workflow design for lead capture, follow-up, reporting, content operations, and AI-assisted business processes.
+- [St. Louis AI Visibility](https://www.digitalenergymedia.com/st-louis-ai-visibility): Regional page for Eureka and St. Louis businesses exploring AI visibility, website, content, and automation systems.
 
 ## Business Context
 
