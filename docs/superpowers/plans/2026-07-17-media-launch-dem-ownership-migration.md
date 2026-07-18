@@ -49,6 +49,9 @@ Private app repository after rename:
   - Updates the public landing copy to Media Launch.
 - Read: `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/.vercel/project.json`
   - Verifies the existing Vercel project linkage without exposing secrets.
+- Create local ignored file: `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/.vercel/project.json`
+  - Copies the non-secret Vercel project/org linkage from the old local checkout
+    into the new local checkout so later Vercel commands target the same project.
 
 Local cleanup:
 
@@ -256,7 +259,21 @@ git -C /Volumes/BotCentral/Users/milo/repos/MediaLaunch remote -v
 
 Expected: local `/Volumes/BotCentral/Users/milo/repos/MediaLaunch` exists, branch `main` is clean, and `origin` points to `https://github.com/MiloTheAssistant/MediaLaunch.git`.
 
-- [ ] **Step 5: Write the failing package-name test through the lockfile check**
+- [ ] **Step 5: Preserve local Vercel project linkage**
+
+Run:
+
+```bash
+mkdir -p /Volumes/BotCentral/Users/milo/repos/MediaLaunch/.vercel
+cp /Volumes/BotCentral/Users/milo/repos/DEM-SocialMediaAdmin/.vercel/project.json \
+  /Volumes/BotCentral/Users/milo/repos/MediaLaunch/.vercel/project.json
+node -e 'const p=require("/Volumes/BotCentral/Users/milo/repos/MediaLaunch/.vercel/project.json"); console.log(JSON.stringify({projectId:p.projectId, orgId:p.orgId}))'
+```
+
+Expected: prints `projectId` and `orgId` only. This file remains ignored by git
+and must not be staged.
+
+- [ ] **Step 6: Write the failing package-name test through the lockfile check**
 
 Run:
 
@@ -267,7 +284,7 @@ node -e 'const p=require("./package.json"); if (p.name !== "media-launch") { con
 
 Expected: FAIL with `expected media-launch, got dem-socialmediaadmin`.
 
-- [ ] **Step 6: Update package identity**
+- [ ] **Step 7: Update package identity**
 
 Edit `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/package.json` so the first fields are:
 
@@ -288,7 +305,7 @@ npm install --package-lock-only
 
 Expected: `package-lock.json` updates the root package name to `media-launch`.
 
-- [ ] **Step 7: Verify package identity passes**
+- [ ] **Step 8: Verify package identity passes**
 
 Run:
 
@@ -300,7 +317,7 @@ node -e 'const p=require("./package-lock.json"); if (p.name !== "media-launch") 
 
 Expected: both commands exit `0`.
 
-- [ ] **Step 8: Update app metadata**
+- [ ] **Step 9: Update app metadata**
 
 Edit `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/src/app/layout.tsx` so the metadata block is:
 
@@ -314,7 +331,7 @@ export const metadata: Metadata = {
 
 Expected: browser titles and metadata use Media Launch, not DEM Social Media Admin.
 
-- [ ] **Step 9: Update private app landing copy**
+- [ ] **Step 10: Update private app landing copy**
 
 Edit `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/src/app/page.tsx` so the hero text reads:
 
@@ -331,7 +348,7 @@ Edit `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/src/app/page.tsx` so the 
 
 Expected: no private workflow behavior changes.
 
-- [ ] **Step 10: Update private app README identity**
+- [ ] **Step 11: Update private app README identity**
 
 Edit the top of `/Volumes/BotCentral/Users/milo/repos/MediaLaunch/README.md` to:
 
@@ -348,7 +365,7 @@ launch-center readiness, tracking placeholders, and manual metric snapshots.
 
 Expected: README name matches the private repository identity while retaining the safety model.
 
-- [ ] **Step 11: Validate private app rename**
+- [ ] **Step 12: Validate private app rename**
 
 Run:
 
@@ -362,7 +379,7 @@ git diff --check
 
 Expected: all commands exit `0`.
 
-- [ ] **Step 12: Commit and push private app rename**
+- [ ] **Step 13: Commit and push private app rename**
 
 Ask the owner for approval to push to the private repository. After approval, run:
 
