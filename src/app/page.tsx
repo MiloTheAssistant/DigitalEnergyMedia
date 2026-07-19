@@ -352,6 +352,7 @@ export default function Home() {
             <div className="mt-4 grid gap-2">
               <a href="#about" className="transition hover:text-white">About</a>
               <a href="#contact" className="transition hover:text-white">Contact</a>
+              <a href={siteConfig.mediaLaunchUrl} className="transition hover:text-white">Media Launch</a>
               <a href="/privacy" className="transition hover:text-white">Privacy</a>
               <a href="/terms" className="transition hover:text-white">Terms</a>
             </div>
